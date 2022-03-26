@@ -13,10 +13,10 @@
 
 
   <groupId>com.xwdx</groupId>
-  <artifactId>jtw-demo</artifactId>
+  <artifactId>jwt-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>jtw-demo</name>
+  <name>jwt-demo</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
