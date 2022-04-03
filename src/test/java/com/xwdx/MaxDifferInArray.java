@@ -3,7 +3,7 @@ package com.xwdx;
 import java.util.Random;
 
 /**
- * @author: kongmingliang
+ * @author: xinwodexie
  * @create: 2022-04-03 09:47:20
  */
 public class MaxDifferInArray {
