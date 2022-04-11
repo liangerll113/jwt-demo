@@ -62,13 +62,11 @@ public class JwtVerifyFilter extends BasicAuthenticationFilter {
         Map<String, Object> map = new HashMap<String, Object>(4);
         response.setContentType("application/json;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        PrintWriter out = response.getWriter();
         // 这里还有其他的 异常 。。 比如账号锁定  过期 等等。。。
-        map.put("code", HttpServletResponse.SC_BAD_GATEWAY);
+        map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
         map.put("message", "jwt token is null");
 
-        out.write(new ObjectMapper().writeValueAsString(map));
-        response.getWriter().println(JSON.toJSONString(map));
+        response.getWriter().write(JSON.toJSONString(map));
         response.getWriter().flush();
         response.getWriter().close();
     }

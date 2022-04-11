@@ -28,7 +28,7 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
         // 这里写死只做测试  请以实际为主
         map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
         map.put("message", "请登录！");
-        response.getWriter().println(JSON.toJSONString(map));
+        response.getWriter().write(JSON.toJSONString(map));
         response.getWriter().flush();
     }
 }
