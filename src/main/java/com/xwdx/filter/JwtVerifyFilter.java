@@ -1,7 +1,6 @@
 package com.xwdx.filter;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xwdx.util.JwtUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +61,7 @@ public class JwtVerifyFilter extends BasicAuthenticationFilter {
         response.setContentType("application/json;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         // 这里还有其他的 异常 。。 比如账号锁定  过期 等等。。。
-        map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
+        map.put("code", -1);
         map.put("message", "jwt token is null");
 
         response.getWriter().write(JSON.toJSONString(map));
@@ -77,7 +75,7 @@ public class JwtVerifyFilter extends BasicAuthenticationFilter {
         response.setContentType("application/json;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         // 这里还有其他的 异常 。。 比如账号锁定  过期 等等。。。
-        map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
+        map.put("code", -1);
         map.put("message", "jwt token is error");
 
         response.getWriter().write(JSON.toJSONString(map));

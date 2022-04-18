@@ -1,4 +1,5 @@
 package com.xwdx.filter;
+
 import com.alibaba.fastjson.JSON;
 import com.xwdx.util.JwtUtil;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -74,13 +74,12 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
         Map<String, Object> map = new HashMap<String, Object>(4);
         response.setContentType("application/json;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        PrintWriter out = response.getWriter();
         if (ex instanceof BadCredentialsException) {
-            map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
+            map.put("code", -1);
             map.put("message", "账号或密码错误！");
         } else {
             // 这里还有其他的 异常 。。 比如账号锁定  过期 等等。。。
-            map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
+            map.put("code", -1);
             map.put("message", "登陆失败！");
         }
         response.getWriter().write(JSON.toJSONString(map));

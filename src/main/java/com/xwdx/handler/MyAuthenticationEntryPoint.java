@@ -15,7 +15,6 @@ import java.util.Map;
 /**
  * 当未登录或者token失效访问接口时，自定义的返回结果
  *
- *
  * @author Json
  * @date 2021/11/10 11:20
  */
@@ -26,7 +25,7 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setContentType("application/json;charset=utf-8");
         Map<String, Object> map = new HashMap<>(4);
         // 这里写死只做测试  请以实际为主
-        map.put("code", HttpServletResponse.SC_UNAUTHORIZED);
+        map.put("code", -1);
         map.put("message", "请登录！");
         response.getWriter().write(JSON.toJSONString(map));
         response.getWriter().flush();

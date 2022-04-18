@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // 允许访问
-                .antMatchers("/login").permitAll()
+                .antMatchers("/jwt/login").permitAll()
                 .anyRequest().authenticated() // 其他请求拦截
                 .and()
                 .csrf().disable() //关闭csrf
